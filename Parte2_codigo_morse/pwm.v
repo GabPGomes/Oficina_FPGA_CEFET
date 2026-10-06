@@ -24,8 +24,8 @@ always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         counter_enable     <= 1'b0;
         ready              <= 1'b1;
-        current_duty_cycle <= 16'd0;
-        current_period     <= 16'd0;
+        current_duty_cycle <= 32'd0;
+        current_period     <= 32'd0;
     end else begin
 
         // Accept a new period
@@ -38,7 +38,7 @@ always @(posedge clk or negedge rst_n) begin
 
         // Wait until the current period is complete
         else if (counter_enable) begin
-            if (current_period == 16'd0 ||
+            if (current_period == 32'd0 ||
                 counter >= current_period - 1'b1) begin
 
                 counter_enable <= 1'b0;
@@ -54,15 +54,12 @@ end
 always @(posedge clk or negedge rst_n) begin
 
     if (!rst_n) begin
-        counter <= 16'd0;
     end else begin
 
         if (counter_enable) begin
-            if (counter < current_period) begin
-                counter <= counter + 1'b1;
+            if () begin
             end
         end else begin
-            counter <= 16'd0;
         end
 
     end
@@ -70,7 +67,6 @@ end
 
 
 // PWM output
-assign pwm_out = counter_enable &&
-                 (counter < current_duty_cycle);
+assign pwm_out = ;
 
 endmodule
