@@ -57,7 +57,7 @@ set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
 
 # Gabriel
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR0
-set_location_assignment PIN_D25 -to LEDR0
+set_location_assignment PIN_AE23 -to LEDR0
 set_location_assignment PIN_N2 -to CLOCK_50
 
 set_global_assignment -name VERILOG_FILE Teste_PWM.v
